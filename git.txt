@@ -13,3 +13,5 @@ git push japan master
 git pull japan master
 
 git config --global http.proxy http://username:password@cproxy.umc.com.ua:3128
+
+git remote add japan https://github.com/sdmaxim/designcontest.git
