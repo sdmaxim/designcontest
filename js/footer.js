@@ -2,22 +2,18 @@ footer = (function () {
 	'use strict';
 	var
 	configMap = {
-		main_html : '<div class="footer-management"></div>'
+		main_html : '<div class="footer-menu"></div>'
 	},
 	stateMap = {
 		$container : {}
 	},
 	jqueryMap = {
-		$setSize : {
-			maxAngle : {},
-			zoom : {}
-		},
 		$menu    : {}
 	},
 	menuList = [
 		{	name: "HELP",		action: "help"},
-		{	name: "OUR TEAM",		action: "out-team"},
-		{	name: "CONTACT US",		action: "contact-us"}
+		{	name: "OUR TEAM",	action: "our-team"},
+		{	name: "CONTACT US",	action: "contact-us"}
 	];
 
 	var button = function (name, action) {
@@ -30,15 +26,10 @@ footer = (function () {
 		});
 
 		htmlButton.click(function () {
-			var msg_text = {
-				maxAngle : jqueryMap.$setSize.maxAngle.val(),
-				zoom : jqueryMap.$setSize.zoom.val()
-			}
 			$.gevent.publish(
 				'footer-menu',
 				[{
-					action : $( this ).attr('action'),
-					data : msg_text
+					action : $( this ).attr('action')
 				}]
 			);
 		});
@@ -58,11 +49,7 @@ footer = (function () {
 	//Задание карты JQuery
 	var setJqueryMap = function () {
 		var $container = stateMap.$container;
-
-		jqueryMap.$menu = $container.find('.footer-management');
-
-		jqueryMap.$setSize.maxAngle = $container.find('input[name=maxAngle]');
-		jqueryMap.$setSize.zoom = $container.find('input[name=zoom]');
+		jqueryMap.$menu = $container.find('.footer-menu');
 	}
 
 	//Точка входа модуля

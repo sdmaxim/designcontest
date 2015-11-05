@@ -8,8 +8,8 @@ shell = (function () {
 					+'<div class="center_wrapper">'
 						+'<div class="logo">'
 							+'<a href="/" title="DesignContest">DesignContest</a>'
-							+'<span class="since_logo">на ринку з 2003</span>'
-							+'<span class="subtext_logo">графічний дизайн - просто як ніколи</span>'
+							+'<span class="since_logo">since 2003</span>'
+							+'<span class="subtext_logo">custom graphic design done affordably</span>'
 						+'</div>'
 						+'<div class="help_block unlogged"></div>'
 					+'</div>'
@@ -22,24 +22,27 @@ shell = (function () {
 					+'<div class="center_wrapper">'
 					+'</div>'
 				+'</div>'
-
 		},
 		stateMap = {
-			$container : {},
-			quan : 0
+			$container : {}
 		},
 		jqueryMap = {
-			$footer : {}
+			$footer : {},
+			$middle : {}
 		};
 
 	//Обработчик кнопок
-	var buttonHandler = function (event, msg_map){	
-		var line1 = 0;	
+	var buttonHandler = function (event, msg_map) {	
 		switch (msg_map.action) {
-			case 'draw'		: middle.initField(msg_map.data); break;
-			case 'clear'	: middle.clearField(); break;
+			case 'help'			: console.log('help'); break;
+			case 'our-team'		: console.log('our-team'); break;
+			case 'contact-us'	: console.log('contact-us'); break;
 		};
 	};
+
+	var keyUpHandler = function (event, msg_map) {
+		console.log(msg_map.str);
+	}
 
 	//Задание карты JQuery
 	var setJqueryMap = function () {
@@ -56,6 +59,7 @@ shell = (function () {
 		footer.initModule( jqueryMap.$footer );
 		middle.initModule( jqueryMap.$middle );
 		$.gevent.subscribe( jqueryMap.$footer, 'footer-menu',  buttonHandler );
+		$.gevent.subscribe( jqueryMap.$middle, 'search',  keyUpHandler );
 	};
 
 	return { initModule : initModule };
