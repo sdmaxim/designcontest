@@ -2,12 +2,18 @@ ul{margin:0;padding:0;}
 li{margin:0;padding:0;display: inline;}
 h1, h3 {
 	margin: 0px;
-    padding: 0px;
+    padding-right: 10px;
     font-size: 14px;
     font-weight: normal;
+    float: left;
+
 }
 h1 {
 	font-weight: bold;
+}
+
+h3 {
+	color: #BBB;
 }
 
 body {
@@ -124,6 +130,16 @@ div.footer-menu li.menuitem:hover{
 	background: #BB0;
 	border: 1px solid #888;
 	float: left;
+}
+
+#middle .fullRel, #middle .halfRel {
+	float: left;
+	padding-bottom: 10px;
+	width: 100%;
+}
+
+#middle .fullRel {
+	background: #F4FD94;
 }
 
 .main_wrapper {
