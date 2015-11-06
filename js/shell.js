@@ -35,13 +35,26 @@ shell = (function () {
 	var buttonHandler = function (event, msg_map) {	
 		switch (msg_map.action) {
 			case 'help'			: console.log('help'); break;
-			case 'our-team'		: console.log('our-team'); break;
+			case 'our-team'	: console.log('our-team'); break;
 			case 'contact-us'	: console.log('contact-us'); break;
 		};
 	};
 
 	var keyUpHandler = function (event, msg_map) {
-		console.log(msg_map.str);
+		var str, search, reg = /^[a-zA-Z0-9.]+$/;
+		middle.clearField();
+		if (msg_map.str.length > 2 && reg.test(msg_map.str)) {
+			search = msg_map.str.toLowerCase();
+			//Нужно организовать разбиение на слова и проверить какие из них с кавычками, подправить регул выраж.
+
+			//Прверка есть ли такое слово в сереализованном объекте
+			db.data.forEach(function(item, i) {
+				str = JSON.stringify(item).toLowerCase();
+				if (str.indexOf(search) + 1) {
+					middle.showPlayer(item);
+				}
+			});
+		}
 	}
 
 	//Задание карты JQuery
@@ -60,6 +73,7 @@ shell = (function () {
 		middle.initModule( jqueryMap.$middle );
 		$.gevent.subscribe( jqueryMap.$footer, 'footer-menu',  buttonHandler );
 		$.gevent.subscribe( jqueryMap.$middle, 'search',  keyUpHandler );
+		db.initModule();
 	};
 
 	return { initModule : initModule };

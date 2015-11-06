@@ -1,25 +1,18 @@
 db = (function () {
 	'use strict';
-	var data = 0;
-
-	$.getJSON( "players.json", function( data ) {
-		var items = [];
-		$.each( data, function( key, val ) {
-			items.push( "<li id='" + key + "'>" + val + "</li>" );
-		});
-
-		$( "<ul/>", {
-			"class": "my-new-list",
-			html: items.join( "" )
-		}).appendTo( "body" );
-	});
+	var jsonData = new Array();
 
 	var initModule = function () {
-
+		$.getJSON( "https://raw.githubusercontent.com/sdmaxim/designcontest/master/zadanie/players.json", function( data ) {
+			$.each( data, function( key, val ) {
+				jsonData[key] = val;
+			});
+		});
 	}
 
 	return {
-		data : data
+		data : jsonData,
+		initModule : initModule
 	}
 }());
 

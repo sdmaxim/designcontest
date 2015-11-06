@@ -26,19 +26,51 @@ middle = (function () {
       );
    }
 
+   var clearField = function () {
+      jqueryMap.$field.empty();
+   }
+
+   var showPlayer = function (item) {
+      var tag, keyText, itemList;
+      //Формирование списка по частям
+      for (var key in item) {
+         if (key != "id") {
+
+            if (key == "name") {
+               tag = '<h1>'; 
+               keyText = "";
+            } else { 
+               tag = '<h3>';
+               keyText = key + ': ';
+            }
+            itemList = $(tag, {
+               'class' : 'itemlist'
+            });
+
+            itemList.text(keyText + item[key]);
+            jqueryMap.$field.append(itemList);
+         }
+      }
+   }
+
+   var showList = function(list) {
+      //listItem.append
+
+      /*jqueryMap.$menu.append(button(
+            menuList[i].name,
+            menuList[i].action
+         ));*/
+   }
+
    //Зададим поле
    var setJqueryMap = function () {
       var $container = stateMap.$container;
       jqueryMap.$search = $container.find('.search');
       jqueryMap.$search.append( configMap.search );
+      jqueryMap.$search.searchString = $container.find('input[name=searchString]');
+      jqueryMap.$search.searchString.keyup(keyUpSearchHendler);
       jqueryMap.$field = $container.find('.field');
-      jqueryMap.$field.searchString = $container.find('input[name=searchString]');
-      jqueryMap.$field.searchString.keyup(keyUpSearchHendler);
-   }
 
-   //Задание конфигурации
-   var setConfigMap = function (options) {
-      configMap.searchString = parseInt(options.searchString, 10);
    }
 
    //Инит модуля
@@ -48,15 +80,10 @@ middle = (function () {
       setJqueryMap();
    }
 
-   //Инит поля
-   var initField = function (options) {
-      setConfigMap(options);
-      clear();
-   }
-
    return {
       initModule  : initModule,
-      initField : initField
+      showPlayer : showPlayer,
+      clearField : clearField
    }
 
 }());

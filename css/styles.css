@@ -1,5 +1,14 @@
 ul{margin:0;padding:0;}
 li{margin:0;padding:0;display: inline;}
+h1, h3 {
+	margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: normal;
+}
+h1 {
+	font-weight: bold;
+}
 
 body {
 	font: 14px "Trebuchet MS",Verdana,Helvetica,Arial,sans-serif;
@@ -25,10 +34,10 @@ body {
 #footer {
 	height: 77px;
 	float: left;
-    width: 100%;
-    background-color: #2f323b;
+	width: 100%;
+	background-color: #2f323b;
 
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	-moz-border-radius:4px;
 	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;

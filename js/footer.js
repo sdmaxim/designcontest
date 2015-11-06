@@ -1,20 +1,20 @@
 footer = (function () {
 	'use strict';
 	var
-	configMap = {
-		main_html : '<div class="footer-menu"></div>'
-	},
-	stateMap = {
-		$container : {}
-	},
-	jqueryMap = {
-		$menu    : {}
-	},
-	menuList = [
-		{	name: "HELP",		action: "help"},
-		{	name: "OUR TEAM",	action: "our-team"},
-		{	name: "CONTACT US",	action: "contact-us"}
-	];
+		configMap = {
+			main_html : '<div class="footer-menu"></div>'
+		},
+		stateMap = {
+			$container : {}
+		},
+		jqueryMap = {
+			$menu    : {}
+		},
+		menuList = [
+			{	name: "HELP",		action: "help"},
+			{	name: "OUR TEAM",	action: "our-team"},
+			{	name: "CONTACT US",	action: "contact-us"}
+		];
 
 	var button = function (name, action) {
 		var htmlButton;
