@@ -31,19 +31,6 @@ shell = (function () {
 			$middle : {}
 		};
 
-	//Обработчик кнопок
-	/*
-	в index.html
-	<script type="text/javascript" src="js/ext/jquery.event.gevent.js"></script>
-
-	var buttonHandler = function (event, msg_map) {
-		switch (msg_map.action) {
-			case 'help'			: console.log('help'); break;
-			case 'our-team'	: console.log('our-team'); break;
-			case 'contact-us'	: console.log('contact-us'); break;
-		};
-	};*/
-
 	//Задание карты JQuery
 	var setJqueryMap = function () {
 		var $container = stateMap.$container;
@@ -58,10 +45,7 @@ shell = (function () {
 		setJqueryMap();
 		footer.initModule( jqueryMap.$footer );
 		middle.initModule( jqueryMap.$middle );
-		db.initModule();
-		//Для работы кнопок
-		//$.gevent.subscribe( jqueryMap.$footer, 'footer-menu',  buttonHandler );
-		
+		db.initModule();		
 	};
 
 	return { initModule : initModule };

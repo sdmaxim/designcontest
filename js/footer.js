@@ -26,13 +26,7 @@ footer = (function () {
 		});
 
 		htmlButton.click(function () {
-			//Это можно использовать когда понадобаться кнопки
-			/*$.gevent.publish(
-				'footer-menu',
-				[{
-					action : $( this ).attr('action')
-				}]
-			);*/
+			//
 		});
 		return htmlButton.text( name );
 	};
