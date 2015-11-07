@@ -123,8 +123,10 @@ middle = (function () {
          }
 
          //Выводим найденные результаты
+         temp = 0;
          for (resInd = 0; resInd < resArr.length; resInd++) {
-            if (resArr[resInd].show) {
+            if (resArr[resInd].show && temp < 8) {
+               temp++;
                //Подсветка если точное совпадение
                if (resArr[resInd].rel == nWords) relClass = "full"; else relClass = "half";
                showPlayer(db.data[resArr[resInd].ind], relClass);
