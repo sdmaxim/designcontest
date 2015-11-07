@@ -26,8 +26,13 @@ footer = (function () {
 		});
 
 		htmlButton.click(function () {
-			//
-		});
+			$.gevent.publish(
+ 				'footer-menu',
+ 				[{
+ 					action : $( this ).attr('action')
+ 				}]
+			);
+ 		});
 		return htmlButton.text( name );
 	};
 

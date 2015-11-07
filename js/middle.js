@@ -23,14 +23,13 @@ middle = (function () {
       findIndPlayes = Array(), 
       resArr = Array(), 
       search = $( this ).val(), 
-      reg = /^[a-zA-Z0-9. '"]+$/; //Буквы англ, цифры, точка, пробел, кавычки
+      reg = /^[a-zA-Z0-9 -?"]+$/; //Буквы англ, цифры, точка, пробел, кавычки
 
       clearField();
       search = search.trim();
       if (search.length > 2 && reg.test(search)) {
          search = search.toLowerCase();
          search = search.split(' ');
-         //Нужно организовать разбиение на слова и проверить какие из них с кавычками
 
          //Проверка есть ли такое слово в значениях объекта
          nWords = search.length;
@@ -41,6 +40,13 @@ middle = (function () {
                search[wordInd] = search[wordInd].slice(1, -1);
                sFlag = 1;
             }
+
+            //если слово слева имеет минус
+            if (search[wordInd][0] == '-') {
+               search[wordInd] = search[wordInd].slice(1);
+               sFlag = 2; 
+            }
+
             // Если слово не имеет длины пропускаем его
             if (!search[wordInd]) {
                nWords--;
@@ -57,12 +63,14 @@ middle = (function () {
                }
                str = str.toLowerCase();
                if (str.indexOf(search[wordInd]) + 1) {
+                  //Если слово найдено но оно с минусов пропускаем этого игрока
+                  if (sFlag == 2) temp = 0; else temp = 1;
                   findIndPlayes[wordInd][searchInd] = {
                      ind : dataInd,
-                     show : 1
+                     show : temp
                   }
                   searchInd++;
-               } else if (sFlag) {
+               } else if (sFlag == 1) {
                   //Если не найдено слово в кавычках, показ запретить
                   findIndPlayes[wordInd][searchInd] = {
                      ind : dataInd,
@@ -117,6 +125,7 @@ middle = (function () {
          //Выводим найденные результаты
          for (resInd = 0; resInd < resArr.length; resInd++) {
             if (resArr[resInd].show) {
+               //Подсветка если точное совпадение
                if (resArr[resInd].rel == nWords) relClass = "full"; else relClass = "half";
                showPlayer(db.data[resArr[resInd].ind], relClass);
             }
