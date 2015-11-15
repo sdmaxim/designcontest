@@ -1,4 +1,4 @@
-git pull design master
+git pull players master
 
 pause
 exit 

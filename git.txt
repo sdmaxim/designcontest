@@ -6,12 +6,10 @@ git status
 
 git commit -m 'version'
 
-git remote add japan https://github.com/sdmaxim/japan.git
+git remote add players https://github.com/sdmaxim/players.git
 
-git push japan master
+git push players master
 
-git pull japan master
+git pull players master
 
-git config --global http.proxy http://username:password@cproxy.umc.com.ua:3128
-
-git remote add japan https://github.com/sdmaxim/designcontest.git
+git config --global http.proxy http://username:password@cproxy.xxx.com.ua:3128
