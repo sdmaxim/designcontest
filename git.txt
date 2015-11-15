@@ -6,10 +6,10 @@ git status
 
 git commit -m 'version'
 
-git remote add players https://github.com/sdmaxim/players.git
+git remote add designcontest https://github.com/sdmaxim/designcontest.git
 
-git push players master
+git push designcontest master
 
-git pull players master
+git pull designcontest master
 
 git config --global http.proxy http://username:password@cproxy.xxx.com.ua:3128

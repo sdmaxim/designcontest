@@ -1,4 +1,4 @@
-git pull players master
+git pull designcontest master
 
 pause
 exit 
